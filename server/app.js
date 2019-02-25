@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 
 // view engine setup
@@ -8,8 +7,8 @@ app.set('view engine', 'pug');
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.bodyParser.urlencoded({ extended: false }));
+app.use(express.bodyParser.json());
 
 app.use('/', require('./routes/index'));
 
