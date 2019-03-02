@@ -16,9 +16,9 @@ app.use(flash());
 
 app.use(
   session({
-    secret: 'loftschool',
+    secret: process.env.SESSION_SECRET_KEY,
     key: 'sessionkey',
-    cookie: { path: '/', httpOnly: true, magAge: 6000 },
+    cookie: { path: '/', httpOnly: true, magAge: 86400000 },
     saveUninitalized: false,
     resave: false,
   })
