@@ -2,6 +2,10 @@ const db = require('../models/db');
 const psw = require('../libs/password');
 
 module.exports.get = function(req, res) {
+  if (req.session.isAdmin) {
+    res.redirect('/admin');
+  }
+
   res.render('pages/login', { msglogin: req.flash('info')[0] });
 };
 
