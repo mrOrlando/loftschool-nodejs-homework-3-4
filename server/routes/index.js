@@ -13,5 +13,6 @@ router.post('/login', ctrlLogin.post);
 
 router.get('/admin', ctrlAdmin.get);
 router.post('/admin/skills', ctrlAdmin.postSkills);
+router.post('/admin/upload', ctrlAdmin.postUpload);
 
 module.exports = router;

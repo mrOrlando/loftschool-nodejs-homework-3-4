@@ -5,6 +5,7 @@ const db = require('../models/db');
 module.exports.get = function(req, res) {
   const data = {
     skillsYears: db.get('skills').value(),
+    products: db.get('products').value(),
   };
 
   res.render('pages/index', data);
