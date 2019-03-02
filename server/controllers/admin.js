@@ -1,3 +1,7 @@
 module.exports.get = function(req, res) {
-  res.render('pages/admin');
+  if (req.session.isAdmin) {
+    res.render('pages/admin');
+  } else {
+    res.redirect('/login');
+  }
 };

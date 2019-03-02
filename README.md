@@ -10,6 +10,10 @@
 2. yarn install
 3. yarn run server
 
+Создать пользователя:
+
+    yarn run create:user
+
 #### На странице login.html - POST запрос url = '/login'
 
 Отправляет на сервер поля

@@ -9,6 +9,8 @@ router.get('/', ctrlHome.get);
 router.post('/', ctrlHome.post);
 
 router.get('/login', ctrlLogin.get);
+router.post('/login', ctrlLogin.post);
+
 router.get('/admin', ctrlAdmin.get);
 
 module.exports = router;
