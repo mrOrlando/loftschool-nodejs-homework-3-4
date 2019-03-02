@@ -1,8 +1,13 @@
 const nodemailer = require('nodemailer');
 const config = require('../config.json');
+const db = require('../models/db');
 
 module.exports.get = function(req, res) {
-  res.render('pages/index');
+  const data = {
+    skillsYears: db.get('skills').value(),
+  };
+
+  res.render('pages/index', data);
 };
 
 module.exports.post = function(req, res) {

@@ -12,5 +12,6 @@ router.get('/login', ctrlLogin.get);
 router.post('/login', ctrlLogin.post);
 
 router.get('/admin', ctrlAdmin.get);
+router.post('/admin/skills', ctrlAdmin.postSkills);
 
 module.exports = router;
