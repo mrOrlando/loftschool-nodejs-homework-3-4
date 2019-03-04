@@ -9,7 +9,8 @@
 1. git clone https://github.com/mrOrlando/loftschool-nodejs-homework-3-4
 2. cd loftschool-nodejs-homework-3-4
 3. yarn install
-4. yarn run server
+4. yarn run build
+5. yarn run server
 
 Создать пользователя:
 
