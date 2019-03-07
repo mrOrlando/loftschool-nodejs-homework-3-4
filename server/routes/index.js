@@ -8,7 +8,7 @@ const ctrlLogin = require('../controllers/login');
 const ctrlAdmin = require('../controllers/admin');
 
 router.get('/', ctrlHome.get);
-router.post('/', ctrlHome.post);
+router.post('/', koaBody(), ctrlHome.post);
 
 router.get('/login', ctrlLogin.get);
 router.post('/login', koaBody(), ctrlLogin.post);
