@@ -1,5 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const path = require('path');
+const Router = require('koa-router');
+const router = new Router();
+const koaBody = require('koa-body');
 
 const ctrlHome = require('../controllers/home');
 const ctrlLogin = require('../controllers/login');
@@ -9,10 +11,19 @@ router.get('/', ctrlHome.get);
 router.post('/', ctrlHome.post);
 
 router.get('/login', ctrlLogin.get);
-router.post('/login', ctrlLogin.post);
+router.post('/login', koaBody(), ctrlLogin.post);
 
 router.get('/admin', ctrlAdmin.get);
-router.post('/admin/skills', ctrlAdmin.postSkills);
-router.post('/admin/upload', ctrlAdmin.postUpload);
+router.post('/admin/skills', koaBody(), ctrlAdmin.postSkills);
+router.post(
+  '/admin/upload',
+  koaBody({
+    multipart: true,
+    formidable: {
+      uploadDir: path.join(process.cwd(), 'server', 'public', 'upload'),
+    },
+  }),
+  ctrlAdmin.postUpload
+);
 
 module.exports = router;

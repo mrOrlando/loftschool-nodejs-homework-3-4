@@ -2,14 +2,14 @@ const nodemailer = require('nodemailer');
 const config = require('../config.json');
 const db = require('../models/db');
 
-module.exports.get = function(req, res) {
+module.exports.get = async (ctx, next) => {
   const data = {
     skillsYears: db.get('skills').value(),
     products: db.get('products').value(),
-    msgemail: req.flash('info')[0],
+    msgemail: ctx.flash('info')[0],
   };
 
-  res.render('pages/index', data);
+  ctx.render('pages/index', data);
 };
 
 module.exports.post = function(req, res) {
